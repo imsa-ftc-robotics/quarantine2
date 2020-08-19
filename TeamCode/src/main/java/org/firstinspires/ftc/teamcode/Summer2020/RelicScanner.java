@@ -29,7 +29,7 @@ public class RelicScanner {
         RIGHT,
         ERROR
     }
-    public static Result scan() { return new SkystoneScanner()._scan(); }
+    public static Result scan() { return new RelicScanner()._scan(); }
 
     OpenCvCamera camera;
     Result result = Result.ERROR;
@@ -150,9 +150,9 @@ public class RelicScanner {
 
             //YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEdddddddddddddddddEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEeT THis bit is mine
             int maxx = Math.max(Math.max(valLeft, valMid), valRight);
-            if (maxx === valLeft) result = Result.LEFT;
-            else if (maxx === valMid) result = Result.CENTER;
-            else if (maxx === valRight) result = Result.RIGHT;
+            if (maxx == valLeft) result = Result.LEFT;
+            else if (maxx == valMid) result = Result.CENTER;
+            else if (maxx == valRight) result = Result.RIGHT;
             else result = Result.ERROR;
             resulted = true;
 
