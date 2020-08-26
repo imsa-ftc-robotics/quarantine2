@@ -29,13 +29,12 @@ public class RelicScanner {
         RIGHT,
         ERROR
     }
-    public static Result scan() { return new RelicScanner()._scan(); }
+    public static Result scan(OpMode op_mode) { return new RelicScanner()._scan(op_mode); }
 
     OpenCvCamera camera;
     Result result = Result.ERROR;
     boolean resulted = false;
-    private Result _scan() {
-        RobotOpMode op_mode = RobotOpMode.running_opmode;
+    private Result _scan(OpMode op_mode) {
         int camera_view_id = op_mode.hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", op_mode.hardwareMap.appContext.getPackageName());
         camera = OpenCvCameraFactory.getInstance().createInternalCamera(OpenCvInternalCamera.CameraDirection.BACK, camera_view_id);
         camera.openCameraDevice();
